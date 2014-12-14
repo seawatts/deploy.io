@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/seawatts/deploy.io.svg)](https://travis-ci.org/seawatts/deploy.io)
+
 # Deploy-io
 
 This README outlines the details of collaborating on this Ember application.
