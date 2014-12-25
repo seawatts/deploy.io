@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/seawatts/deploy.io.png?label=ready&title=Ready)](https://waffle.io/seawatts/deploy.io)
 deploy.io
 =========
 
