@@ -1,37 +1,30 @@
 FORMAT: 1A
 
 # deploy.io
-Notes API is a *short texts saving* service similar to its physical paper presence on your table.
+Is a service that will publish code from GitHub to a specfied server.
+TODO: Create debs and Maybe talk about apt-get repo
+It will also allow you to run post deploy scripts.
 
-# Group Notes
-Notes related resources of the **Notes API**
+# Deployment repos
+Repositories from GitHub that are allowed to be deployed via the **deploy.io API**
 
-## Notes Collection [/notes]
-### List all Notes [GET]
+## Repos Collection [/{user}]
+### List all repos for that user or organization [GET]
++ Parameters
+    + user (required, string, `chris`) ... String `name` of the user to perform action with. Has example value.
+    
 + Response 200 (application/json)
 
         [{
-          "id": 1, "title": "Jogging in park"
+          "id": 1, "title": "Repo 1"
         }, {
-          "id": 2, "title": "Pick-up posters from post-office"
+          "id": 2, "title": "Repo 2"
         }]
 
-### Create a Note [POST]
-+ Request (application/json)
+## Repo [/{user}/{repo}]
+A single repo object with all its details
 
-        { "title": "Buy cheese and bread for breakfast." }
-
-+ Response 201 (application/json)
-
-        { "id": 3, "title": "Buy cheese and bread for breakfast." }
-
-## Note [/notes/{id}]
-A single Note object with all its details
-
-+ Parameters
-    + id (required, number, `1`) ... Numeric `id` of the Note to perform action with. Has example value.
-
-### Retrieve a Note [GET]
+### Retrieve a single repo [GET]
 + Response 200 (application/json)
 
     + Header
@@ -42,5 +35,18 @@ A single Note object with all its details
 
             { "id": 2, "title": "Pick-up posters from post-office" }
 
-### Remove a Note [DELETE]
+### Create a new deployment configuration for the specified repo [POST]
++ Parameters
+    + user (required, string, `chris`) ... String `name` of the user to perform action with. Has example value.
+    + repo (required, string, `deploy.io`) ... String `repo` of the repo to perform action with. Has example value.
+    
++ Request (application/json)
+
+        { "title": "Buy cheese and bread for breakfast." }
+
++ Response 201 (application/json)
+
+        { "id": 3, "title": "Buy cheese and bread for breakfast." }
+
+### Remove a Repo configuration [DELETE]
 + Response 204
